@@ -58,23 +58,37 @@ function getLocation(location) {
     }
 }
 
+var count = 0;
+var someId = 'myidhere';
+
+var addOne = function addOne() {};
+
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name ? user.name : 'Anonymous'
+        'Count: ',
+        count
     ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
+    React.createElement(
+        'button',
+        { onClick: addOne },
+        '+1'
+    ),
+    React.createElement(
+        'button',
         null,
-        'Age: ',
-        user.age
+        '>-1'
     ),
-    getLocation(user.location)
+    React.createElement(
+        'button',
+        null,
+        'reset'
+    )
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
