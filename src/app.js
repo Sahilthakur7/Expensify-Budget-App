@@ -35,7 +35,16 @@ function getLocation(location){
 const removeAll = () => {
     app.options = [];
     appRender();
-}
+};
+
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
+    alert(option);
+};
+
+
+const numbers = [55,10123,44];
 
 const appRoot = document.getElementById('app');
 
@@ -47,10 +56,18 @@ const appRender = () => {
             {(app.subtitle) && <p>{app.subtitle}</p>}
             <p>{app.options.length > 0 ? "Here are the options" : 'No Options For you'}</p>
             <p>{app.options.length}</p>
-            <button onClick= {removeAll}>Remove All</button>
+            <button disabled={app.options.length== 0? true : false}onClick={onMakeDecision}>What Should I do?</button>
+            <p>
+                <button onClick= {removeAll}>Remove All</button>
+            </p>
+            <div>
+            </div>
             <ol>
-                <li>Item one</li> 
-                <li>Item two</li> 
+                {
+                    app.options.map((option)=>{
+                        return <li key={option}>{ option }</li>;
+                    })
+                }
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
