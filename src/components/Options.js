@@ -15,7 +15,13 @@ class Options extends React.Component{
 
         return(
             <div>
-                <button onClick={this.props.handleDeleteOptions}>Remove All</button>
+                <div className="widget-header">
+                    <h3 className="widget-header__title">Your Options</h3>
+                    <button 
+                        className="button--link"
+                        onClick={this.props.handleDeleteOptions}>Remove All</button>
+                </div>
+                {optionsArray.length === 0 && <p className="widget__message">Please add an option </p>}
                 {optionsArray.length==0 ? null : options}
             </div>
         );
