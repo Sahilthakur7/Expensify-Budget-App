@@ -19,8 +19,10 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log(state);
 
 setTimeout(()=> {
-    store.dispatch(addExpense({ description: 'Rent', amount: 2500}));
+    store.dispatch(addExpense({ description: 'Rent', amount: 2500, createdAt: 1500}));
 }, 3000);
+
+store.dispatch(addExpense({ description: 'Playstation', amount: 5000}));
 
 const jsx = (
     <Provider store={store}>
