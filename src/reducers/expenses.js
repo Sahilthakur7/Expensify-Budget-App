@@ -12,6 +12,9 @@ const expensesReducer = (state = expensesReducerDefaultState,action) => {
             return state.filter(({ id}) => {
                 return id !== action.id;
             });
+        case 'EDIT_EXPENSE':
+            return [...state,
+                action.expense];
 
         default:
             return state;
