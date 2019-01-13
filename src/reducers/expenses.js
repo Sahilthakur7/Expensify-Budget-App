@@ -13,8 +13,6 @@ const expensesReducer = (state = expensesReducerDefaultState,action) => {
                 return id !== action.id;
             });
         case 'EDIT_EXPENSE':
-            return [...state,
-                action.expense];
 
         default:
             return state;
