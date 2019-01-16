@@ -23,6 +23,7 @@ setTimeout(()=> {
 }, 3000);
 
 store.dispatch(addExpense({ description: 'Playstation', amount: 5000}));
+console.log("hell");
 
 const jsx = (
     <Provider store={store}>
