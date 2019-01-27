@@ -12,5 +12,15 @@ const config = {
 firebase.initializeApp(config);
 
 firebase.database().ref().set({
-    name: 'Sahil Thakur'
+    name: 'Sahil Thakur',
+    age: 22,
+    isMarried: false,
+    location: {
+        state: 'HP',
+        city: 'Shimla'
+    }
+}).then(() => {
+    console.log('Data is saved');
+}).catch((error) => {
+    console.log(error);
 });
