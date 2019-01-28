@@ -24,3 +24,18 @@ firebase.database().ref().set({
 }).catch((error) => {
     console.log(error);
 });
+
+
+const onValueChange = firebase.database().ref().on('value',(snapshot) => {
+    const val = snapshot.val();
+    console.log(val);
+});
+
+setTimeout(()=> {
+    firebase.database().ref('age').set(23);
+}, 3500);
+// database.ref('isMarried').remove().then(() => {
+//     console.log("Dataa was removed");
+// }).catch((e) => {
+//     console.log("Couldn't be removed");
+// })
